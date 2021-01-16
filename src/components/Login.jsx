@@ -30,7 +30,7 @@ class Login extends Component{
 
     renderRedirect = () => {
         if (this.state.redirect) {
-            window.location = "/tasks"
+            window.location = "/vote"
         }
     };
 
@@ -49,7 +49,7 @@ class Login extends Component{
                                         <label htmlFor="name">Name</label>
                                         <input type="text" name="name" value={this.state.name}
                                                onChange={this.nameOnChange}
-                                               placeholder="username"/>
+                                               placeholder="name"/>
                                     </div>
                                 </form>
                                 <button type="button" className="btn-primary" onClick={this.login}>
