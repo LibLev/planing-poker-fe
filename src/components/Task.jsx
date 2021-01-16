@@ -1,6 +1,26 @@
 import React, {Component} from "react";
+import axios from "axios";
 
 class Task extends Component{
+
+    state = {
+        value : null,
+        taskId : this.props.data.id,
+        name: ""
+    }
+
+    valueOnChange = event => {
+        this.setState({value: event.target.value})
+    }
+
+    sendVote = () => {
+        axios.post(`http://localhost:8080/add-value-to-task`,
+            {
+                name : localStorage.getItem("name"),
+                taskId : this.state.taskId,
+                cardValue : this.state.value
+            })
+    }
 
     render() {
         return(
@@ -9,7 +29,10 @@ class Task extends Component{
                     <h5 className="card-header">{this.props.data.nameOfTask}</h5>
                     <div className="card-body">
                         <p className="card-text">{this.props.data.description}</p>
-                        <select name="value">
+                    </div>
+                    <div className="card-row">
+                        <select name="value" onChange={this.valueOnChange}>
+                            <option value="0">Please select</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -21,6 +44,7 @@ class Task extends Component{
                             <option value="55">55</option>
                             <option value="89">89</option>
                         </select>
+                        <button onClick={this.sendVote}>Vote</button>
                     </div>
                 </div>
             </div>

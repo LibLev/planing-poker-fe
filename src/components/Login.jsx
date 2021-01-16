@@ -19,8 +19,8 @@ class Login extends Component{
                 name: this.state.name,
             }
         ).then(resp => {
-            console.log(resp.data);
-            localStorage.setItem("token", resp.data.token);
+            console.log(resp.data.success);
+            localStorage.setItem("name", resp.data.name);
             this.setState({redirect: true});
         }).catch((e) => {
             console.log(e.message)
