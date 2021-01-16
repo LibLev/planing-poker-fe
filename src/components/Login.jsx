@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import axios from "axios";
 
-class Login extends Component{
+class Login extends Component {
 
     state = {
         name: "",
@@ -34,35 +34,36 @@ class Login extends Component{
         }
     };
 
-    render(){
-        return(
-            <div className="container-md" style={{marginTop: "30px"}}>
-                <div>
-                    {this.renderRedirect()}
-                    <div className="container-sm">
-                        <div className="card text-sm-center" style={{ margin: "0 auto",
-                            float: "none",
-                            marginBottom: "10px"}}>
-                            <div className="card-body">
-                                <form>
-                                    <div className="form-group">
-                                        <label htmlFor="name">Name</label>
-                                        <input type="text" name="name" value={this.state.name}
-                                               onChange={this.nameOnChange}
-                                               placeholder="name"/>
-                                    </div>
-                                </form>
-                                <button type="button" className="btn-primary" onClick={this.login}>
-                                    Login
-                                </button>
-                            </div>
+
+    render() {
+        return (
+            <div>
+                {this.renderRedirect()}
+                <div className="container-sm">
+                    <div className="card text-sm-center" style={{
+                        margin: "0 auto",
+                        float: "none",
+                        marginBottom: "10px"
+                    }}>
+                        <div className="card-body">
+                            <form>
+                                <div className="form-group">
+                                    <label htmlFor="name">Name</label>
+                                    <input type="text" name="name" value={this.state.name}
+                                           onChange={this.nameOnChange}
+                                           placeholder="name"/>
+                                </div>
+                            </form>
+                            <button type="button" className="btn-primary" onClick={this.login}>
+                                Start to vote
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
+
         )
     }
-
-
 }
+
 export default Login;

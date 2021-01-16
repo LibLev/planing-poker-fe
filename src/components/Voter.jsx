@@ -1,8 +1,8 @@
 import React, {Component} from "react";
 import axios from "axios";
-import Task from "./Task";
+import TaskVoter from "./TaskVoter";
 
-class AllTask extends Component {
+class Voter extends Component {
 
     state = {
         data: [],
@@ -43,7 +43,7 @@ class AllTask extends Component {
                     {this.renderRedirect()}
                     <div className="container-md">
                         <div className="row-cols-1">
-                            {this.state.data.map((d) => (<Task data={d}/>))}
+                            {this.state.data.map((d) => (<TaskVoter data={d}/>))}
                         </div>
                         <button type="button" onClick={this.nextColleague}>Next colleague</button>
                     </div>
@@ -53,4 +53,4 @@ class AllTask extends Component {
     }
 }
 
-export default AllTask;
+export default Voter;
