@@ -8,6 +8,20 @@ class Login extends Component {
         redirect: false
     }
 
+    device = () => {
+        axios.get(`http://localhost:8080/`)
+            .then((response)=>{
+                console.log(response.data)
+            })
+            .catch((error)=>{
+                console.log(error)
+            })
+    }
+
+    componentDidMount() {
+        this.device();
+    }
+
     nameOnChange = (event) => {
         this.setState({name: event.target.value});
         console.log(this.state.name);
